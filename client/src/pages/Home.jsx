@@ -13,15 +13,25 @@ function Home() {
     setInput(e.target.value);
     console.log(e.target.value);
   };
-  const handleSubmit = (e) =>{
+
+  
+  const handleSubmit = (e) => {
     e.preventDefault();
-      setArr([...arr,input]);
-      setInput('');
-      acceptTask();
-  }
-  function acceptTask(){
+    // Create a new array with the current input
+    const updatedArr = [...arr, input];
+    // Update the state with the new array
+    setArr(updatedArr);
+    // Clear the input field
+    setInput('');
+    // Send the updated array to the server
+    acceptTask(updatedArr);
+  };
+
+
+  function acceptTask(arr){
     console.log("Sent the message");
-    axios.post('http://localhost:5000/add',{content:input})
+    console.log(arr);
+    axios.post('http://localhost:5000/add',{content:arr})
     .then(response => {
       console.log('Data sent successfully:', response.data);
     })
