@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar/Navbar";
 import styles from "./Home.module.css";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import axios from 'axios'
+
 
 function Home() {
   const [input,setInput] = useState('');
@@ -15,6 +17,17 @@ function Home() {
     e.preventDefault();
       setArr([...arr,input]);
       setInput('');
+      acceptTask();
+  }
+  function acceptTask(){
+    console.log("Sent the message");
+    axios.post('http://localhost:5000/add',{content:input})
+    .then(response => {
+      console.log('Data sent successfully:', response.data);
+    })
+    .catch(error => {
+      console.error('There was an error sending the data:', error);
+    });
   }
 
   return (
