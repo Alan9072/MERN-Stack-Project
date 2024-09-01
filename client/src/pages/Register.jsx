@@ -1,8 +1,9 @@
 import React from 'react'
+import Header from '../components/Header/Header'
 
 function Register() {
   return (
-    <div>Register</div>
+    <div><Header/></div>
   )
 }
 

@@ -4,11 +4,15 @@ import styles from "./Home.module.css";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import axios from 'axios'
+import Header from "../components/Header/Header";
 
 
 function Home() {
   const [input,setInput] = useState('');
   const [arr,setArr] = useState([]);
+  const [placeholder,setPlaceholder] = useState('Enter task');
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingIndex, setEditingIndex] = useState(null);
   const handleChange = (e) => {
     setInput(e.target.value);
     console.log(e.target.value);
@@ -17,15 +21,42 @@ function Home() {
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(input != ''){
+      if (isEditing) {
+        const updatedArr = [...arr];
+        updatedArr[editingIndex] = input;
+        setArr(updatedArr);
+        setIsEditing(false);
+        setEditingIndex(null);
+        acceptTask(updatedArr);
+      } else {
+        const array = [...arr,input];
+        setArr(array);
+        acceptTask(array);
+      }
+      // Clear the input field
+      setInput('');
+    }
+    else{
+      setPlaceholder("Enter any task");
+    }
     // Create a new array with the current input
-    const updatedArr = [...arr, input];
-    // Update the state with the new array
-    setArr(updatedArr);
-    // Clear the input field
-    setInput('');
+   
     // Send the updated array to the server
-    acceptTask(updatedArr);
+    
   };
+
+  function handleEdit(index){
+    setInput(arr[index]);
+    setIsEditing(true);
+    setEditingIndex(index);
+  }
+  function handleDelete(index){
+    const currentArr = [...arr];
+    currentArr.splice(index, 1);
+    setArr(currentArr);
+
+  }
 
 
   function acceptTask(arr){
@@ -41,13 +72,18 @@ function Home() {
   }
 
   return (
+    <>
+    <Header/>
     <div className={styles.HomeContainer}>
+      
       <div className={styles.Homebox}>
         <Navbar />
         <div className={styles.insider}>
           <form action="" onSubmit={handleSubmit}>
-            <input type="text" value={input} onChange={handleChange} placeholder="Enter task"/>
-            <button type="submit">Add</button>
+            <input type="text" value={input} onChange={handleChange} placeholder={placeholder}/>
+            <button type="submit">
+             {isEditing ? "Update" : "Add"}
+            </button>
           </form>
           <div className={styles.contentinside}>
             {arr.length === 0? 
@@ -58,8 +94,8 @@ function Home() {
                   {item}
                 </div>
                 <div className={styles.button}>
-                  <MdEdit/>
-                  <MdDelete/>
+                  <MdEdit onClick={() => { handleEdit(index);}}/>
+                  <MdDelete onClick={() => { handleDelete(index);}}/>
                 </div>
               </div> // Display each item in the array
             ))
@@ -69,6 +105,7 @@ function Home() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
