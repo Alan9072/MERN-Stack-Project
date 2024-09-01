@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.post('/add',(req,res)=>{
     console.log(req.body);
     console.log("message received");
-    res.json("successful");
+    res.send("successful");
 })
 
 app.listen(port,()=>{
