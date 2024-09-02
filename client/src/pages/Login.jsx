@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 function Login() {
   return (
     <div>
-      <Header />
+      <Header value={"Login"}/>
     </div>
   );
 }

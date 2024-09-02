@@ -3,7 +3,7 @@ import Header from '../components/Header/Header'
 
 function Register() {
   return (
-    <div><Header/></div>
+    <div><Header value={"Register"}/></div>
   )
 }
 

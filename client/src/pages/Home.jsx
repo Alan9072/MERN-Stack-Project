@@ -77,7 +77,7 @@ function Home() {
 
   return (
     <>
-      <Header />
+      <Header value={"Home"}/>
       <div className={styles.HomeContainer}>
         <div className={styles.Homebox}>
           <Navbar />
@@ -102,8 +102,8 @@ function Home() {
                       {item.task}
                     </div>
                     <div className={styles.button}>
-                      <MdEdit onClick={() => handleEdit(item._id, item.task)} />
-                      <MdDelete onClick={() => handleDelete(item._id)} />
+                      <MdEdit style={{color:"#0762F6"}} onClick={() => handleEdit(item._id, item.task)} />
+                      <MdDelete style={{color:"#0762F6"}} onClick={() => handleDelete(item._id)} />
                     </div>
                   </div>
                 ))

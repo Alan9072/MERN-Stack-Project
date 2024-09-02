@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './Header.module.css'
 
-function Header() {
+function Header(props) {
   return (
-    <div className={styles.headerarea}>Header</div>
+    <div className={styles.headerarea}>{props.value}</div>
   )
 }
 
