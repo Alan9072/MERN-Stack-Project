@@ -6,16 +6,19 @@ import { MdDelete } from "react-icons/md";
 import axios from 'axios';
 import Header from "../components/Header/Header";
 
+
+
 function Home() {
   const [input, setInput] = useState('');
   const [arr, setArr] = useState([]);
   const [placeholder, setPlaceholder] = useState('Enter task');
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
-
+ 
   useEffect(() => {
+    const url = 'http://localhost:5000';
     // Fetch tasks from the backend
-    axios.get('http://localhost:5000/tasks')
+    axios.get(`${url}/tasks`)
       .then(response => {
         setArr(response.data); // Update state with the fetched tasks
       })
@@ -32,7 +35,7 @@ function Home() {
     e.preventDefault();
     if (input.trim() !== '') {
       if (isEditing) {
-        axios.put(`http://localhost:5000/tasks/${editingId}`, { task: input })
+        axios.put(`${url}/tasks/${editingId}`, { task: input })
           .then(response => {
             const updatedArr = arr.map(task =>
               task._id === editingId ? response.data : task
@@ -45,7 +48,7 @@ function Home() {
             console.error('Error updating task:', error);
           });
       } else {
-        axios.post('http://localhost:5000/tasks', { task: input })
+        axios.post(`${url}/tasks`, { task: input })
           .then(response => {
             setArr([...arr, response.data]);
           })
@@ -66,7 +69,7 @@ function Home() {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/tasks/${id}`)
+    axios.delete(`${url}/tasks/${id}`)
       .then(() => {
         setArr(arr.filter(task => task._id !== id));
       })
