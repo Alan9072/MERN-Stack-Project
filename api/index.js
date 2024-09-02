@@ -3,12 +3,6 @@ import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import Task from "./Models/task.js";
-
-dotenv.config();
-const port = 5000;
-
-const app = express();
-app.use(express.json());
 app.use(
   cors({
     origin:"https://react-project-frontend-mu.vercel.app", // Replace with your domains
@@ -17,6 +11,13 @@ app.use(
      // Some legacy browsers choke on 204
   })
 );
+
+dotenv.config();
+const port = 5000;
+
+const app = express();
+app.use(express.json());
+
 
 app.use(express.urlencoded({ extended: true }));
 
