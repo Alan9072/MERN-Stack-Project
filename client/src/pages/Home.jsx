@@ -77,7 +77,7 @@ function Home() {
 
   return (
     <>
-      <Header value={"Home"}/>
+      <Header value={"React Basic Project - Todo List"}/>
       <div className={styles.HomeContainer}>
         <div className={styles.Homebox}>
           <Navbar />

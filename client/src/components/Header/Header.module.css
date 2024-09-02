@@ -1,7 +1,7 @@
 .headerarea{
     width: 100%;
     height: 1cm;
-    background-color: aqua;
+    background-color:#00E1FF;
     display: flex;
     justify-content: center;
     align-items: center;
