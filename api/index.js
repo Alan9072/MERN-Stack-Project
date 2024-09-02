@@ -3,6 +3,13 @@ import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import Task from "./Models/task.js";
+
+
+dotenv.config();
+const port = 5000;
+
+const app = express();
+
 app.use(
   cors({
     origin:"https://react-project-frontend-mu.vercel.app", // Replace with your domains
@@ -12,14 +19,11 @@ app.use(
   })
 );
 
-dotenv.config();
-const port = 5000;
-
-const app = express();
 app.use(express.json());
-
-
 app.use(express.urlencoded({ extended: true }));
+
+// Handle preflight requests for all routes
+app.options('*', cors());
 
 // MongoDB connection
 mongoose
