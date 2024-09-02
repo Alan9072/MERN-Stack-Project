@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://react-project-frontend-mu.vercel.app"], // Replace with your domains
+    origin:"https://react-project-frontend-mu.vercel.app", // Replace with your domains
     methods: "GET,POST,PUT,DELETE", // Allowed methods
     credentials: true, // Allow cookies to be sent with requests
      // Some legacy browsers choke on 204
