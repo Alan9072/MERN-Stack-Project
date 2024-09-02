@@ -16,7 +16,7 @@ function Home() {
   const [editingId, setEditingId] = useState(null);
  
   useEffect(() => {
-    const url = 'http://localhost:5000';
+    const url = 'https://api-six-pink-24.vercel.app';
     // Fetch tasks from the backend
     axios.get(`${url}/tasks`)
       .then(response => {
