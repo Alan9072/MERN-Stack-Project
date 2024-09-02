@@ -14,9 +14,10 @@ function Home() {
   const [placeholder, setPlaceholder] = useState('Enter task');
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
+  const url = 'http://localhost:5000';
  
   useEffect(() => {
-    const url = 'http://localhost:5000';
+    
     // Fetch tasks from the backend
     axios.get(`${url}/tasks`)
       .then(response => {
