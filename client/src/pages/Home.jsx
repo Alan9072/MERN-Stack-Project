@@ -14,7 +14,7 @@ function Home() {
   const [placeholder, setPlaceholder] = useState('Enter task');
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
-  const url = 'http://localhost:5000';
+  
  
   useEffect(() => {
     const url = 'https://api-six-pink-24.vercel.app/';
