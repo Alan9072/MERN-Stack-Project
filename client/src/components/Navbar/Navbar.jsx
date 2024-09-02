@@ -8,7 +8,7 @@ function Navbar() {
     <div className={styles.NavArea}>
         <div className={styles.todologo}><h3>ToDo</h3></div>
         <Link  className={styles.link} to="/login">
-        <div className={styles.menu}><IoIosMenu/><p>Login</p></div>
+              <div className={styles.menu}><IoIosMenu/><p>Login</p></div>
         </Link>
         
     </div>
