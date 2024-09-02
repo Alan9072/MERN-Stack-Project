@@ -32,6 +32,11 @@ mongoose
   .catch((err) => console.log(err));
 
 // Routes
+app.get("/",(req,res)=>{
+  res.json("Hii");
+})
+
+
 app.post("/tasks", async (req, res) => {
   try {
     const { task } = req.body;
