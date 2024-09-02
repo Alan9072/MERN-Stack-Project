@@ -11,7 +11,7 @@ body{
     
 }
 .Homebox{
-    width: 50%;
+    width:300px;
     height: 500px;
     background-color: rgb(255, 255, 255);
     padding: 5px;
@@ -61,17 +61,18 @@ form>button{
     border-color: #075EF6;
 }
 .contentinside{
-    
+    overflow-y: auto;
     height: calc(100% - 50px);
     background-color:#E0E9F8;
     display: flex;
     flex-direction: column;
     gap: 2px;
     padding: 2px;
+    scrollbar-width:none;
 }
 .divdes{
 
-    height: 1cm;
+    min-height: 1cm;
     background-color:#FAFAFA;
     display: flex;
     justify-content:space-between;
