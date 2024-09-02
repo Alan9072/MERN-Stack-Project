@@ -14,7 +14,7 @@ function Home() {
   const [placeholder, setPlaceholder] = useState('Enter task');
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
-  const url = 'http://localhost:5000';
+  const url = 'https://react-project-backend-seven.vercel.app'||'http://localhost:5000';
  
   useEffect(() => {
     // Fetch tasks from the backend
