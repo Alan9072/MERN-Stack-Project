@@ -11,12 +11,14 @@ const port = 5000;
 const app = express();
 
 app.use(
-  cors({
-    origin:"https://react-project-frontend-mu.vercel.app", // Replace with your domains
-    methods: "GET,POST,PUT,DELETE", // Allowed methods
-    credentials: true, // Allow cookies to be sent with requests
-     // Some legacy browsers choke on 204
-  })
+  cors(
+  //   {
+  //   origin:"https://react-project-frontend-mu.vercel.app", // Replace with your domains
+  //   methods: "GET,POST,PUT,DELETE", // Allowed methods
+  //   credentials: true, // Allow cookies to be sent with requests
+  //    // Some legacy browsers choke on 204
+  // }
+)
 );
 
 app.use(express.json());
@@ -32,9 +34,9 @@ mongoose
   .catch((err) => console.log(err));
 
 // Routes
-app.get("/",(req,res)=>{
-  res.json("Hii");
-})
+// app.get("/",(req,res)=>{
+//   res.json("Hii");
+// })
 
 
 app.post("/tasks", async (req, res) => {
