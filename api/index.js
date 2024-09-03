@@ -6,7 +6,7 @@ import Task from "./Models/task.js";
 
 
 dotenv.config();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 const app = express();
 
