@@ -10,16 +10,16 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
-app.use(
-  cors(
-  //   {
-    origin:"https://react-project-frontend-2zvg.onrender.com", // Replace with your domains
-    methods: "GET,POST,PUT,DELETE", // Allowed methods
-    credentials: true, // Allow cookies to be sent with requests
-  //    // Some legacy browsers choke on 204
-  // }
-)
-);
+const corsOptions = {
+    origin: "https://react-project-frontend-2zvg.onrender.com", // Replace with your domains
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+
+// Ensure you're passing the options correctly, for example:
+app.use(cors(corsOptions));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
