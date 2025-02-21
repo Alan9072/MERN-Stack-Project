@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 const corsOptions = {
-    origin: "https://api-h8aqlwasg-alan9072s-projects.vercel.app", // Replace with your domains
+    origin: "https://react-project-frontend-mu.vercel.app/", // Replace with your domains
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     optionsSuccessStatus: 200
